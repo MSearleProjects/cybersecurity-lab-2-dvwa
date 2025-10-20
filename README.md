@@ -1,4 +1,4 @@
-# Web Application Penetration Testing (Kali + DVWA)
+# Web Application Penetration Testing Lab (Kali + DVWA)
 ## Overview
 This project provides an isolated, reproducible lab environment for practicing fundamental **Web Application Penetration Testing** skills. It specifically targets 2 vulnerabilities from the **OWASP Top 10**: **SQL Injection (SQLi)** and **Cross-Site Scripting (XSS)**.
 
