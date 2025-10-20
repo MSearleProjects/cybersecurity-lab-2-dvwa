@@ -27,3 +27,17 @@ Navigate to the project directory and execute the following command:
 ```
 docker-compose up -d
 ```
+### Initial Configuration
+1. **Accecss DVWA**: Open your web browser and navigate to: `http://localhost:8080`.
+2. **Login**: Use the default credentials: `admin`/`password`.
+3. **Initialise**: Click the **"Create/Reset Database"** button.
+4. **Set Security**: Navigate to **"DVWA Security"** and set the level to `Low` for the exercises.
+### Access the Kali Terminal
+Attach the Kali container to start running your penetration testing tools.
+```
+docker exec -it kali-attacker /bin/bash
+```
+
+---
+
+## Lab Objectives and Walkthrough
