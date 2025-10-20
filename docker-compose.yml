@@ -1,0 +1,31 @@
+version: '3.8'
+
+# Defines the network that all services will use, isolating them from your host network
+networks:
+  pentest-net:
+    driver: bridge
+
+services:
+  # 1. The Victim (Damn Vulnerable Web Application)
+  dvwa:
+    image: vulnerables/web-dvwa
+    container_name: dvwa-victim
+    restart: always
+    # Maps the container's port 80 to your host's port 8080 
+    # for easy browser access from your host machine (http://localhost:8080)
+    ports:
+      - "8080:80"
+    networks:
+      - pentest-net
+
+  # 2. The Attacker (Kali Linux)
+  kali-attacker:
+    image: kalilinux/kali-rolling
+    container_name: kali-attacker
+    # Attach to the isolated network
+    networks:
+      - pentest-net
+    # This keeps the container running so you can attach to it later
+    tty: true 
+    # Use a command that keeps the container alive
+    command: tail -f /dev/null
