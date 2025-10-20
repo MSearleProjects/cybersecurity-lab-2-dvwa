@@ -72,6 +72,6 @@ Success is confirmed when SQLMap displays a table listing the usernames and hash
 ---
 
 ## Conclusion
-This lab successfully demonstrated the practical execution of two critical web application flaws: **SQL Injection (SQLi)** and **Cross-Site Scripting (XSS)**. By utilizing industry-standard tools like **SQLMap** within the isolated **Kali Linux** environment, the project contributor gained hands-on experience exploiting vulnerabilities rooted in insecure data handling and improper input sanitization. This exercise reinforces the importance of viewing application security from the attacker's perspective.
+This lab successfully demonstrated the practical execution of two critical web application flaws: **SQL Injection (SQLi)** and **Cross-Site Scripting (XSS)**. By utilizing industry-standard tools like **SQLMap** within the isolated **Kali Linux** environment, this project provides hands-on experience exploiting vulnerabilities rooted in insecure data handling and improper input sanitization and reinforces the importance of viewing application security from the attacker's perspective.
 
 **Disclaimer**: This lab was conducted in a controlled, isolated environment for educational purposes. Unauthorised access to any computer system is illegal and unethical.
