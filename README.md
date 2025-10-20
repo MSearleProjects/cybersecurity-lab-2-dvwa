@@ -16,7 +16,14 @@ To successfully run and complete this lab, the user must have the following soft
 
 ---
 
-## 🐳 Lab Setup Guide
+## Lab Setup Guide
 
 The entire lab environment is deployed using a single `docker-compose.yml` file.
 
+1. **Docker Config File**
+Download the `docker-compose.yml` file and add it to the directory that is going to be used to launch the environment.
+2. **Start the Environment**
+Navigate to the project directory and execute the following command:
+```
+docker-compose up -d
+```
