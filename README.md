@@ -67,7 +67,7 @@ Success is confirmed when SQLMap displays a table listing the usernames and hash
 ```
 <script>alert(document.cookie);</script>
 ```
-3. **Observation**: An immediate JavaScript pop-up alert box should appear, displaying the current session cookies. This confirms the application is vulnerable to Stored XSS because it fails to sanitise user input.
+3. **Observation**: A JavaScript pop-up alert box should appear, displaying the current session cookies. This confirms the application is vulnerable to Stored XSS because it fails to sanitise user input.
 
 ---
 
