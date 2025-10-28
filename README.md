@@ -40,7 +40,7 @@ docker exec -it kali-attacker /bin/bash
 
 ---
 
-## Lab Objectives and Walkthrough
+## Lab Walkthrough
 
 ### Reconnaissance and Setup
 1. **Find the Target Hostname**:
