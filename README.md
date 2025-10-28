@@ -16,7 +16,7 @@ To successfully run and complete this lab, the user must have the following soft
 
 ---
 
-## Lab Setup Guide
+## Lab Environment Setup
 
 The entire lab environment is deployed using a single `docker-compose.yml` file.
 
